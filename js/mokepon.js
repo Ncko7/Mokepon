@@ -50,7 +50,7 @@ function seleccionarMascostaEnemigo() {
         spanMascotaEnemigo.innerHTML = 'Pydos';
     }
 }
-
+//Funcion aleatoria para elegir la mascota del enemigo
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
