@@ -1,4 +1,5 @@
-let ataqueJugador 
+let ataqueJugador; 
+let ataqueEnemigo;
 
 function iniciarJuego() {
     let botonMascota = document.getElementById('btn-mascota');
@@ -52,43 +53,61 @@ function seleccionarMascotaJugagor() {
 
 //Funcion para elegir la mascota aleatoria enemigo
 function seleccionarMascostaEnemigo() {
-    let ataqueAleatorio = aleatorio(1, 6);
+    let mascotaAleatoria = aleatorio(1, 6);
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo');
 
-    if (ataqueAleatorio == 1)  {
+    if (mascotaAleatoria == 1)  {
         spanMascotaEnemigo.innerHTML = 'Hipodoge';
-    } else if (ataqueAleatorio == 2) {
+    } else if (mascotaAleatoria == 2) {
         spanMascotaEnemigo.innerHTML = 'Capipepo';
-    } else if (ataqueAleatorio == 3) {
+    } else if (mascotaAleatoria == 3) {
         spanMascotaEnemigo.innerHTML = 'Ratigueya';
-    } else if (ataqueAleatorio == 4) {
+    } else if (mascotaAleatoria == 4) {
         spanMascotaEnemigo.innerHTML = 'Langostelvis';
-    } else if (ataqueAleatorio == 5) {
+    } else if (mascotaAleatoria == 5) {
         spanMascotaEnemigo.innerHTML = 'Tucapalma';
     } else {
         spanMascotaEnemigo.innerHTML = 'Pydos';
     }
 }
-
+// Funciones para los ataques de las mascotas de nuestro jugadores
 function ataqueFire() {
     ataqueJugador = 'Fire 🔥';
-    alert(ataqueJugador);
+    ataqueAleatorioEnemigo();
 }
 function ataqueWater() {
     ataqueJugador = 'Water 💧';
-    alert(ataqueJugador);
+    ataqueAleatorioEnemigo();
 }
 function ataqueEarth() {
     ataqueJugador = 'Earth 🌱'
-    alert(ataqueJugador);
+    ataqueAleatorioEnemigo();
 } 
 function ataqueAir() {
     ataqueJugador = 'Air 🌪️';
-    alert(ataqueJugador);
+    ataqueAleatorioEnemigo();
 }
 function ataqueLighting() {
     ataqueJugador = 'Ligthing ⚡';
-    alert(ataqueJugador);
+    ataqueAleatorioEnemigo();
+}
+
+//Funcion para los ataques de las mascotas del enemigo
+function ataqueAleatorioEnemigo() {
+    let ataqueAleatorio = aleatorio(1, 5);
+
+    if (ataqueAleatorio == 1) {
+        ataqueEnemigo = 'Fire 🔥';
+    } else if (ataqueAleatorio == 2) {
+        ataqueEnemigo = 'Water 💧';
+    } else if (ataqueAleatorio == 3) {
+        ataqueEnemigo = 'Earth 🌱';
+    } else if (ataqueAleatorio == 4) {
+        ataqueEnemigo = 'Air 🌪️'; 
+    } else {
+        ataqueEnemigo = 'Ligthing ⚡';
+    }
+    
 }
 
 //Funcion aleatoria para elegir la mascota del enemigo
