@@ -1,6 +1,7 @@
 let ataqueJugador; 
 let ataqueEnemigo;
 
+//Funcion para iniciar el juego
 function iniciarJuego() {
     let botonMascota = document.getElementById('btn-mascota');
     botonMascota.addEventListener('click', seleccionarMascotaJugagor);
@@ -92,7 +93,7 @@ function ataqueLighting() {
     ataqueAleatorioEnemigo();
 }
 
-//Funcion para los ataques de las mascotas del enemigo
+//Funcion para los ataques aleatorios de nuestros enemigos
 function ataqueAleatorioEnemigo() {
     let ataqueAleatorio = aleatorio(1, 5);
 
@@ -107,7 +108,17 @@ function ataqueAleatorioEnemigo() {
     } else {
         ataqueEnemigo = 'Ligthing ⚡';
     }
-    
+
+    crearMensaje()
+}
+
+function crearMensaje() {
+    let sectionMensajes = document.getElementById('mensajes');
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota del enemigo atacó con " + ataqueEnemigo + "pendiente...."
+
+    sectionMensajes.appendChild(parrafo)
 }
 
 //Funcion aleatoria para elegir la mascota del enemigo
