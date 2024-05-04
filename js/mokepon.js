@@ -4,7 +4,7 @@ let ataqueEnemigo;
 //Funcion para iniciar el juego
 function iniciarJuego() {
     let botonMascota = document.getElementById('btn-mascota');
-    botonMascota.addEventListener('click', seleccionarMascotaJugagor);
+    botonMascota.addEventListener('click', seleccionarMascotaJugador);
 
     let botonFire = document.getElementById('btn-fire');
     botonFire.addEventListener('click', ataqueFire);
@@ -24,7 +24,7 @@ function iniciarJuego() {
 }
 
 //Funcion para elegir la mascota
-function seleccionarMascotaJugagor() {
+function seleccionarMascotaJugador() {
     let inputHipodoge = document.getElementById('hipodoge');
     let inputCapipepo = document.getElementById('capipepo');
     let inputRatigueya = document.getElementById('ratigueya');
@@ -49,11 +49,11 @@ function seleccionarMascotaJugagor() {
    } else {
     alert('Selecciona una mascota')
    }
-   seleccionarMascostaEnemigo();
+   seleccionarMascotaEnemigo();
 }
 
 //Funcion para elegir la mascota aleatoria enemigo
-function seleccionarMascostaEnemigo() {
+function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(1, 6);
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo');
 
