@@ -1,5 +1,8 @@
 let ataqueJugador; 
 let ataqueEnemigo;
+let vidasJugador = 3;
+let vidasEnemigo = 3;
+
 
 //Funcion para iniciar el juego
 function iniciarJuego() {
@@ -113,22 +116,41 @@ function ataqueAleatorioEnemigo() {
 }
 
 function combate() {
+    let spanVidasJugador = document.getElementById('vidas-jugador');
+    let spanVidasEnemigo = document.getElementById('vidas-enemigo');
+
     if (ataqueEnemigo == ataqueJugador) {
-      crearMensaje()
+      crearMensaje("Es un empate")
+      vidasEnemigo--;
+      spanVidasJugador.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Fire' && ataqueEnemigo == 'Earth') {
-      crearMensaje()
+      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      vidasEnemigo--;
+      spanVidasJugador.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Water' &&  ataqueEnemigo == 'Fire') { 
-      crearMensaje()  
+      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")  
+      vidasEnemigo--;
+      spanVidasJugador.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Earth' &&  ataqueEnemigo == 'Water') {
-      crearMensaje()
+      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      vidasEnemigo--;
+      spanVidasJugador.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Air' && ataqueEnemigo == 'Fire') {
-      crearMensaje()
+      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      vidasEnemigo--;
+      spanVidasJugador.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Air') {
-      crearMensaje()
+      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      vidasEnemigo--;
+      spanVidasJugador.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Earth') {
-      crearMensaje()
+      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      vidasEnemigo--
+      spanVidasJugador.innerHTML = vidasEnemigo;
     } else {
-    crearMensaje()
+      crearMensaje("Perdiste la batalla 😭😢")
+      vidasJugador--;
+      spanVidasJugador.innerHTML = vidasJugador;
     }
         
     
