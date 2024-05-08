@@ -109,14 +109,36 @@ function ataqueAleatorioEnemigo() {
         ataqueEnemigo = 'Ligthing ⚡';
     }
 
-    crearMensaje()
+    combate(); //Se llama la funciona aca para que la variable resultado ya tenga un valor establecido
 }
 
-function crearMensaje() {
+function combate() {
+    if (ataqueEnemigo == ataqueJugador) {
+      crearMensaje()
+    } else if (ataqueJugador == 'Fire' && ataqueEnemigo == 'Earth') {
+      crearMensaje()
+    } else if (ataqueJugador == 'Water' &&  ataqueEnemigo == 'Fire') { 
+      crearMensaje()  
+    } else if (ataqueJugador == 'Earth' &&  ataqueEnemigo == 'Water') {
+      crearMensaje()
+    } else if (ataqueJugador == 'Air' && ataqueEnemigo == 'Fire') {
+      crearMensaje()
+    } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Air') {
+      crearMensaje()
+    } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Earth') {
+      crearMensaje()
+    } else {
+    crearMensaje()
+    }
+        
+    
+}
+
+function crearMensaje(resultado) {
     let sectionMensajes = document.getElementById('mensajes');
 
     let parrafo = document.createElement('p')
-    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota del enemigo atacó con " + ataqueEnemigo + "pendiente...."
+    parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota del enemigo atacó con " + ataqueEnemigo + '- ' + resultado
 
     sectionMensajes.appendChild(parrafo)
 }
