@@ -74,7 +74,7 @@ function seleccionarMascotaEnemigo() {
         spanMascotaEnemigo.innerHTML = 'Pydos';
     }
 }
-// Funciones para los ataques de las mascotas de nuestro jugadores
+// Funciones para los ataques de las mascotas de nuestros jugadores
 function ataqueFire() {
     ataqueJugador = 'Fire 🔥';
     ataqueAleatorioEnemigo();
@@ -112,7 +112,7 @@ function ataqueAleatorioEnemigo() {
         ataqueEnemigo = 'Ligthing ⚡';
     }
 
-    combate(); //Se llama la funciona aca para que la variable resultado ya tenga un valor establecido
+    combate(); //Se llama la funcion aca para que la variable resultado ya tenga un valor establecido
 }
 
 function combate() {
@@ -122,38 +122,46 @@ function combate() {
     if (ataqueEnemigo == ataqueJugador) {
       crearMensaje("Es un empate")
       vidasEnemigo--;
-      spanVidasJugador.innerHTML = vidasEnemigo;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Fire' && ataqueEnemigo == 'Earth') {
       crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
       vidasEnemigo--;
-      spanVidasJugador.innerHTML = vidasEnemigo;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Water' &&  ataqueEnemigo == 'Fire') { 
       crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")  
       vidasEnemigo--;
-      spanVidasJugador.innerHTML = vidasEnemigo;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Earth' &&  ataqueEnemigo == 'Water') {
       crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
       vidasEnemigo--;
-      spanVidasJugador.innerHTML = vidasEnemigo;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Air' && ataqueEnemigo == 'Fire') {
       crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
       vidasEnemigo--;
-      spanVidasJugador.innerHTML = vidasEnemigo;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Air') {
       crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
       vidasEnemigo--;
-      spanVidasJugador.innerHTML = vidasEnemigo;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Earth') {
       crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
       vidasEnemigo--
-      spanVidasJugador.innerHTML = vidasEnemigo;
+      spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else {
       crearMensaje("Perdiste la batalla 😭😢")
       vidasJugador--;
       spanVidasJugador.innerHTML = vidasJugador;
     }
         
-    
+    revisarVidas();
+}
+// Funcion para revisar las vidas que nos quedan
+function revisarVidas() {
+    if (vidasEnemigo == 0) {
+        crearMensajeFinal("Felicitaciones!!! Has ganado esta batalla⚔️😉🎉");
+    } else if (vidasJugador == 0) {
+        crearMensajeFinal("Ups, parace que tu mascota no fue lo sufientemente fuerte. Perdiste 😭😢💥");
+    }
 }
 
 function crearMensaje(resultado) {
@@ -161,6 +169,15 @@ function crearMensaje(resultado) {
 
     let parrafo = document.createElement('p')
     parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota del enemigo atacó con " + ataqueEnemigo + '- ' + resultado
+
+    sectionMensajes.appendChild(parrafo)
+}
+
+function crearMensajeFinal(resultadoFinal) {
+    let sectionMensajes = document.getElementById('mensajes');
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = resultadoFinal;
 
     sectionMensajes.appendChild(parrafo)
 }
