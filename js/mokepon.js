@@ -24,6 +24,9 @@ function iniciarJuego() {
     let botonLigthing = document.getElementById('btn-ligthing');
     botonLigthing.addEventListener('click', ataqueLighting);
 
+    let btnReset = document.getElementById("btn-reiniciar");
+    btnReset.addEventListener('click', reiniciarJuego);
+
 }
 
 //Funcion para elegir la mascota
@@ -36,6 +39,7 @@ function seleccionarMascotaJugador() {
     let inputPydos = document.getElementById('pydos');
     let spanMascotaJugador = document.getElementById('mascota-jugador')
 
+    
     
    if (inputHipodoge.checked) {
     spanMascotaJugador.innerHTML = 'Hipodoge';
@@ -120,31 +124,29 @@ function combate() {
     let spanVidasEnemigo = document.getElementById('vidas-enemigo');
 
     if (ataqueEnemigo == ataqueJugador) {
-      crearMensaje("Es un empate")
-      vidasEnemigo--;
-      spanVidasEnemigo.innerHTML = vidasEnemigo;
+      crearMensaje("Es un empate");
     } else if (ataqueJugador == 'Fire' && ataqueEnemigo == 'Earth') {
-      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      crearMensaje("Felicitaciones, ganaste 😉⚔️💥")
       vidasEnemigo--;
       spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Water' &&  ataqueEnemigo == 'Fire') { 
-      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")  
+      crearMensaje("Felicitaciones, ganaste 😉⚔️💥")  
       vidasEnemigo--;
       spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Earth' &&  ataqueEnemigo == 'Water') {
-      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      crearMensaje("Felicitaciones, ganaste 😉⚔️💥")
       vidasEnemigo--;
       spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Air' && ataqueEnemigo == 'Fire') {
-      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      crearMensaje("Felicitaciones, ganaste 😉⚔️💥")
       vidasEnemigo--;
       spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Air') {
-      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      crearMensaje("Felicitaciones, ganaste 😉⚔️💥")
       vidasEnemigo--;
       spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else if (ataqueJugador == 'Lighthing' && ataqueEnemigo == 'Earth') {
-      crearMensaje("Felicitaciones, ganasta la batalla 😉⚔️💥")
+      crearMensaje("Felicitaciones, ganaste 😉⚔️💥")
       vidasEnemigo--
       spanVidasEnemigo.innerHTML = vidasEnemigo;
     } else {
@@ -179,7 +181,26 @@ function crearMensajeFinal(resultadoFinal) {
     let parrafo = document.createElement('p')
     parrafo.innerHTML = resultadoFinal;
 
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.appendChild(parrafo);
+
+    let botonFire = document.getElementById('btn-fire');
+    botonFire.disable = true;
+
+    let botonWater = document.getElementById('btn-water');
+    botonWater.disable = true;
+
+    let botonEarth = document.getElementById('btn-earth');
+    botonEarth.disable = true;
+
+    let botonAir = document.getElementById('btn-air');
+    botonAir.disable = true;
+
+    let botonLigthing = document.getElementById('btn-ligthing');
+    botonLigthing.disable = true;
+}
+//Funcion para reiniciar completamente el juego
+function reiniciarJuego() {
+    location.reload() //Este metodo nos sirve para recarga nuestra pagina
 }
 
 //Funcion aleatoria para elegir la mascota del enemigo
